@@ -67,6 +67,22 @@ public class LoanRequest {
 			this.type = type;
 		}
 		
+		 public boolean equals(Object obj){
+			 LoanRequest loanObj=(LoanRequest)obj;
+			 boolean status=false;
+			 if(this.accountId==loanObj.getAccountId()
+					 && this.amount==loanObj.getAmount()
+					 && this.creditScore==loanObj.getCreditScore()
+					 && this.roi==loanObj.getRoi()
+					 && this.tenure==loanObj.getTenure()
+					 && this.status.equalsIgnoreCase(loanObj.getStatus())
+					 && this.type.equalsIgnoreCase(loanObj.getType())
+					 ) {
+				 status=true;
+			 }
+			 return status;
+		  }
+		
 		
 
 }

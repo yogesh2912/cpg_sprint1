@@ -58,8 +58,8 @@ public class LoanDisbursalService {
 		}
 		catch(Exception ee) {
 			throw ee;
-			//System.out.println(ee);
 		}
+		
 	
 		//return null;
 		

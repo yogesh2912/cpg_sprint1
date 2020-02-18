@@ -22,7 +22,10 @@ public class LoanRequestDao {
 		
 		if(mapOfAccounts.containsKey(loanBean.getAccountId())) {
 			boolean result=listOfLoans.add(loanBean);
+			System.out.println("Ye dekh le " +result);
 			return result;
+			//listOfLoans.add(loanBean);
+			//return true;
 		}
 		else {
 			throw new InvalidUserexception("You are not a valid user.");

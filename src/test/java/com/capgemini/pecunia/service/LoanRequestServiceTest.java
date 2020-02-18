@@ -1,7 +1,9 @@
 package com.capgemini.pecunia.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -64,17 +66,18 @@ public class LoanRequestServiceTest {
 	}
 	
 	@Test
-	void test() throws Exception {
+	void test() throws Exception{
 		LoanRequestService loanObj=new LoanRequestService();
 		LoanRequest loan=new LoanRequest(123456789632L,1005.0,16,665,13,"pending","study-loan");
-		assertEquals(true,loanObj.addLoanDetailsService(loan));
+		assertTrue(loanObj.addLoanDetailsService(loan));
 	}
 	
 	@Test
-	void test1() throws Exception {
+	void testInvalidUser() throws Exception {
 		LoanRequestService loanObj=new LoanRequestService();
 		LoanRequest loan=new LoanRequest(213457689632L,1005.0,16,665,13,"pending","study-loan");
-		assertEquals(true,loanObj.addLoanDetailsService(loan));
+		//assertFalse(loanObj.addLoanDetailsService(loan));
+		assertThrows(InvalidUserexception.class,()->loanObj.addLoanDetailsService(loan));
 	}
 	
 	
