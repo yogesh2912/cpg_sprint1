@@ -25,7 +25,6 @@ public class LoanRequestUi {
 	public static void main(String[] args) {
 		
 		AccountUtil df=new AccountUtil();
-		//To Add Loan Request
 		
 		LoanRequestService loanObj=new LoanRequestService();
 		

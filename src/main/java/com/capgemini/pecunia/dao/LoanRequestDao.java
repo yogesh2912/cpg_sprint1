@@ -14,6 +14,7 @@ public class LoanRequestDao {
 	AccountUtil accountUtilObj=new AccountUtil();
 	LoanRequestUtil loanUtilObj=new LoanRequestUtil();
 	
+	//this function checks if accountId of loan request has a valid account or not does the processing accordingly.
 	public boolean addLoanDetailsDao(LoanRequest loanBean) throws InvalidUserexception{
 		
 		Map<Long,Account> mapOfAccounts=accountUtilObj.getMapOfAccount();
@@ -21,16 +22,10 @@ public class LoanRequestDao {
 		
 		
 		if(mapOfAccounts.containsKey(loanBean.getAccountId())) {
-			boolean result=listOfLoans.add(loanBean);
-			System.out.println("Ye dekh le " +result);
-			return result;
-			//listOfLoans.add(loanBean);
-			//return true;
+			return listOfLoans.add(loanBean);
 		}
 		else {
 			throw new InvalidUserexception("You are not a valid user.");
-			//System.out.println("You are not a valid User");
-			//return false;
 		}
 		
 		

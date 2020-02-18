@@ -14,7 +14,7 @@ public class LoanDisbursalService {
 	AccountUtil mapOfAccounts=new AccountUtil();
 	
 	
-	
+	//this function accepts loan if credit score is less than 670 else rejects it.
 	public List<LoanRequest> retrieveAll() throws Exception{
 		
 		LoanDisbursalDao loanObj=new LoanDisbursalDao();
@@ -50,18 +50,14 @@ public class LoanDisbursalService {
 		}
 		catch(NullPointerException ee) {
 			throw ee;
-			//System.out.println(ee);
 		}
 		catch(NoLoanRequestException ee) {
 			throw ee;
-			//System.out.println(ee);
 		}
 		catch(Exception ee) {
 			throw ee;
 		}
 		
-	
-		//return null;
 		
 	}
 

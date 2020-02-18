@@ -27,12 +27,6 @@ public class Account {
 		this.dateOfCreation = dateOfCreation;
 	}
 	
-	/*public Account(double balance, String accountHolderName, LocalDate dateOfCreation) {
-		super();
-		this.balance = balance;
-		this.accountHolderName = accountHolderName;
-		this.dateOfCreation = dateOfCreation;
-	}*/
 
 	
 

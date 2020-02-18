@@ -1,6 +1,7 @@
 package com.capgemini.pecunia.util;
 
 import java.time.LocalDate;
+
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
@@ -8,9 +9,11 @@ import java.util.Map;
 
 import com.capgemini.pecunia.dto.Account;
 
+//this class has a static Map which has accountId as key and Account Object as values.
+
 public class AccountUtil {
 	
-	private static Map<Long,Account> mapOfAccounts=new HashMap<Long,Account>();
+	private static Map<Long,Account> mapOfAccounts=new HashMap<>();
 	
 	public AccountUtil() {
 		
@@ -50,8 +53,7 @@ public class AccountUtil {
 		a5.setDateOfCreation(LocalDate.parse("01 10 2015",myFormat));
 		
 	    mapOfAccounts.put(963524682342L,a5);
-		
-		//System.out.println(mapOfAccounts.get(963524682342L).getAccountHolderName());
+	
 		
 	}
 	

@@ -67,6 +67,8 @@ public class LoanRequest {
 			this.type = type;
 		}
 		
+		
+		//equals is overRidden for Comparing two LoanRequest Objects
 		 public boolean equals(Object obj){
 			 LoanRequest loanObj=(LoanRequest)obj;
 			 boolean status=false;

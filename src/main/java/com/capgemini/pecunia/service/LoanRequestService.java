@@ -13,6 +13,7 @@ import com.capgemini.pecunia.exception.InvalidUserexception;
 public class LoanRequestService {
 	LoanRequestDao loanObj=new LoanRequestDao();
 	
+	//this function validates different conditions on loan request 
 	public boolean addLoanDetailsService (LoanRequest loanBean) throws Exception {
 	
 			if(loanBean==null) {
@@ -22,32 +23,25 @@ public class LoanRequestService {
 
 			long accountId=loanBean.getAccountId();
 			String str=Long.toString(accountId);
-			//System.out.println(str.length());
 			
-			if(!(str.length()==12)) {
+			if((str.length()!=12)) {
 				throw new InvalidAccountIdException("Account Id should be of 12 digits");
-				//return false;
 			}
 			if(!(loanBean.getAmount() >= 1000 && loanBean.getAmount()<=10000000)) {
 				throw new InvalidAmountException("Amount should be between 1000 and 10000000");
-				//return false;
 			}
 			if(!(loanBean.getTenure()>=12 && loanBean.getTenure()<=240)) {
 				throw new InvalidTenureException("Tenure should be between 12 and 240");
-				//return false;
 			}
 			if(!(loanBean.getCreditScore()>=100 && loanBean.getCreditScore()<=999)) {
 				throw new InvalidCreditScoreException("Credit Score should be between 100 and 999");
-				//return false;
 			}
 			if(!(loanBean.getRoi()>=4 && loanBean.getRoi()<=15)) {
 				throw new InvalidRoiException("Rate of interest sholud be between 4 and 15");
-				//return false;
 			}
 			else {
 				try {
-					boolean result=loanObj.addLoanDetailsDao(loanBean);
-					return result;
+					return loanObj.addLoanDetailsDao(loanBean);
 				}
 				catch(InvalidUserexception ee) {
 					throw ee;

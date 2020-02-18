@@ -13,21 +13,21 @@ public class LoanDisbursalDao {
 	
 	LoanDisbursalService loanObj =new LoanDisbursalService();
 	
+	
+	//this function retrieve list of loan request from util and pass it to the service layer.
 	public List<LoanRequest> retrieveLoanListDao () throws Exception {
 		
 		
 		List<LoanRequest> listOfLoans =loanUtil.getListOfLoans();
 		
-		System.out.println(listOfLoans);
 		
 			
 			if((listOfLoans==null)) {
 				throw new NullPointerException();
 			}
 			
-			if((listOfLoans.size()==0)) {
+			if((listOfLoans.isEmpty())) {
 				throw new NoLoanRequestException("No Loan Request are present");
-				//System.out.println("No Loan Request Exception");
 			}
 			else {
 				return listOfLoans;

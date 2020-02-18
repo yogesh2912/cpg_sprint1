@@ -7,20 +7,27 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.capgemini.pecunia.dto.LoanRequest;
 import com.capgemini.pecunia.exception.NoLoanRequestException;
 import com.capgemini.pecunia.service.LoanDisbursalService;
 import com.capgemini.pecunia.service.LoanRequestService;
+import com.capgemini.pecunia.ui.LoanRequestUi;
 import com.capgemini.pecunia.util.LoanRequestUtil;
 
 public class LoanDisbursalDaoTest {
 	
+	LoanDisbursalDao loanObj;
+	
+	@BeforeEach
+	void init() {
+		loanObj=new LoanDisbursalDao();
+	}
+	
 	@Test
 	void NoLoanRequest() throws Exception {
-		LoanDisbursalDao loanObj=new LoanDisbursalDao();
-		
 		assertThrows(NoLoanRequestException.class,()->loanObj.retrieveLoanListDao());
 	}
 	
@@ -31,10 +38,8 @@ public class LoanDisbursalDaoTest {
 		List<LoanRequest> loanRequest=new ArrayList<LoanRequest>();
 		loanRequest.add(new LoanRequest(182344628143L,1005.0,16,665,13,"pending","study-loan"));
 		
-		//LoanRequestUtil loanBean=new LoanRequestUtil();
 		LoanRequestUtil.setListOfLoans(loanRequest);
 		
-		LoanDisbursalDao loanObj=new LoanDisbursalDao();
 		
 		Object [] testOutput= loanObj.retrieveLoanListDao().toArray();
 		
@@ -49,7 +54,6 @@ public class LoanDisbursalDaoTest {
 	
 	@Test
 	void returnsNull() {
-		LoanDisbursalDao loanObj=new LoanDisbursalDao();
 		LoanRequestUtil loanBean=new LoanRequestUtil();
 		loanBean.setListOfLoans(null);
 		assertThrows(NullPointerException.class,()->loanObj.retrieveLoanListDao());

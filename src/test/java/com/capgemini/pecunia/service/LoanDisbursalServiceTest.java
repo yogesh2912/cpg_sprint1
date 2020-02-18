@@ -18,7 +18,12 @@ import com.capgemini.pecunia.util.LoanRequestUtil;
 
 public class LoanDisbursalServiceTest {
 	
-
+	LoanDisbursalService loanObj;
+	
+	@BeforeEach
+	public void init() {
+		loanObj=new LoanDisbursalService();
+	}
 	
 	@Test
 	void testAccepted() throws Exception {
@@ -29,7 +34,7 @@ public class LoanDisbursalServiceTest {
 		//LoanRequestUtil loanBean=new LoanRequestUtil();
 		LoanRequestUtil.setListOfLoans(loanRequest);
 		
-		LoanDisbursalService loanObj=new LoanDisbursalService();
+		
 		
 		Object [] testOutput= loanObj.retrieveAll().toArray();
 		
@@ -51,7 +56,6 @@ public class LoanDisbursalServiceTest {
 		//LoanRequestUtil loanBean=new LoanRequestUtil();
 		LoanRequestUtil.setListOfLoans(loanRequest);
 		
-		LoanDisbursalService loanObj=new LoanDisbursalService();
 		
 		Object [] testOutput= loanObj.retrieveAll().toArray();
 		
@@ -71,8 +75,6 @@ public class LoanDisbursalServiceTest {
 		
 		LoanRequestUtil.setListOfLoans(loanRequest);
 		
-		LoanDisbursalService loanObj=new LoanDisbursalService();
-		
 		assertThrows(NoLoanRequestException.class,()->loanObj.retrieveAll());
 		
 	}
@@ -81,10 +83,7 @@ public class LoanDisbursalServiceTest {
 	void testNull() {
 		List<LoanRequest> loanRequest=null;
 		
-		
 		LoanRequestUtil.setListOfLoans(loanRequest);
-		
-		LoanDisbursalService loanObj=new LoanDisbursalService();
 		
 		assertThrows(NullPointerException.class,()->loanObj.retrieveAll());
 		
