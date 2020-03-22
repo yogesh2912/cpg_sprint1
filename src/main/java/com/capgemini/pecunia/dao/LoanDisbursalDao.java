@@ -7,7 +7,7 @@ import com.capgemini.pecunia.exception.NoLoanRequestException;
 import com.capgemini.pecunia.service.LoanDisbursalService;
 import com.capgemini.pecunia.util.LoanRequestUtil;
 
-public class LoanDisbursalDao {
+public class LoanDisbursalDao implements LoanDisbursalDaoInterface{
 	
 	LoanRequestUtil loanUtil=new LoanRequestUtil();
 	

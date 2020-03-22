@@ -23,13 +23,12 @@ import com.capgemini.pecunia.util.AccountUtil;
 public class LoanRequestUi {
 	
 	public static void main(String[] args) {
-		
-		AccountUtil df=new AccountUtil();
-		
+	
+		new AccountUtil();
 		LoanRequestService loanObj=new LoanRequestService();
-		
+		//loan request
 		try {
-			loanObj.addLoanDetailsService(new LoanRequest(182344628143L,1005.0,16,665,13,"pending","study-loan"));
+			loanObj.addLoanDetailsService(new LoanRequest(182344682342L,1005.0,16,695,13,"pending","study-loan"));
 			//loanObj.addLoanDetailsService(new LoanRequest(123456789632L,1005.0,16,500,13,"pending","study-loan"));
 			//loanObj.addLoanDetailsService(null);
 		}
@@ -81,10 +80,10 @@ public class LoanRequestUi {
 			System.out.println(ee);
 		}
 		
-		//to See the update Accounts
+		//to See the updated Accounts
 		
 		
-		Map<Long,Account> acc=df.getMapOfAccount();
+		Map<Long,Account> acc=AccountUtil.getMapOfAccount();
 		
 		List<Entry<Long,Account>> listOfAccounts=new ArrayList<Entry<Long,Account>>(acc.entrySet());
 		

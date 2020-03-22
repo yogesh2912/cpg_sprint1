@@ -9,24 +9,24 @@ import com.capgemini.pecunia.dto.LoanRequest;
 import com.capgemini.pecunia.exception.NoLoanRequestException;
 import com.capgemini.pecunia.util.AccountUtil;
 
-public class LoanDisbursalService {
+public class LoanDisbursalService implements LoanDisbursalServiceInterface{
 	
 	AccountUtil mapOfAccounts=new AccountUtil();
 	
 	
-	//this function accepts loan if credit score is less than 670 else rejects it.
+	//this function accepts loan if credit score is greater than 670 else rejects it.
 	public List<LoanRequest> retrieveAll() throws Exception{
 		
 		LoanDisbursalDao loanObj=new LoanDisbursalDao();
 		
 		List<LoanRequest> listOfLoans;
-		Map<Long,Account>accountObj=mapOfAccounts.getMapOfAccount();
+		Map<Long,Account>accountObj=AccountUtil.getMapOfAccount();
 		
 		try {
 			listOfLoans=loanObj.retrieveLoanListDao();
 			
 			for(LoanRequest indexLoan:listOfLoans) {
-				if(indexLoan.getCreditScore()<670) {
+				if(indexLoan.getCreditScore()>670) {
 					indexLoan.setStatus("Accepted");
 					double currentBalance=accountObj.get(indexLoan.getAccountId()).getBalance();
 					
@@ -35,7 +35,6 @@ public class LoanDisbursalService {
 					
 					aa.setBalance(indexLoan.getAmount()+currentBalance);
 		
-					accountObj.put(indexLoan.getAccountId(),aa);
 				
 					
 				}

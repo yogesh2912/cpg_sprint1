@@ -31,6 +31,7 @@ public class LoanDisbursalDaoTest {
 		assertThrows(NoLoanRequestException.class,()->loanObj.retrieveLoanListDao());
 	}
 	
+	//this function checks list of loanRequest Obtained from util 
 	@Test
 	void returnsList() throws Exception {
 		

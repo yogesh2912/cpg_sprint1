@@ -26,7 +26,7 @@ public class LoanDisbursalServiceTest {
 	}
 	
 	@Test
-	void testAccepted() throws Exception {
+	void testRejected() throws Exception {
 		
 		List<LoanRequest> loanRequest=new ArrayList<LoanRequest>();
 		loanRequest.add(new LoanRequest(182344628143L,1005.0,16,665,13,"pending","study-loan"));
@@ -40,7 +40,7 @@ public class LoanDisbursalServiceTest {
 		
 		
 		Object [] expected=new Object[1];
-		expected[0]=new LoanRequest(182344628143L,1005.0,16,665,13,"Accepted","study-loan");
+		expected[0]=new LoanRequest(182344628143L,1005.0,16,665,13,"Rejected","study-loan");
 		
 		
 		
@@ -49,7 +49,7 @@ public class LoanDisbursalServiceTest {
 	}
 	
 	@Test
-	void testRejected() throws Exception {
+	void testAccepted() throws Exception {
 		List<LoanRequest> loanRequest=new ArrayList<LoanRequest>();
 		loanRequest.add(new LoanRequest(182344628143L,1005.0,16,900,13,"pending","study-loan"));
 		
@@ -61,7 +61,7 @@ public class LoanDisbursalServiceTest {
 		
 		
 		Object [] expected=new Object[1];
-		expected[0]=new LoanRequest(182344628143L,1005.0,16,900,13,"Rejected","study-loan");
+		expected[0]=new LoanRequest(182344628143L,1005.0,16,900,13,"Accepted","study-loan");
 		
 		
 		

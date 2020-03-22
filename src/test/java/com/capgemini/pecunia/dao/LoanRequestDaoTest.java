@@ -24,13 +24,13 @@ public class LoanRequestDaoTest {
 		loanObj=new LoanRequestDao();
 	}
 	
+	//this function test wheather a valid loan request is added to list of loanRequests or not
 	@Test
 	void testAddloanRequest() throws Exception{
 		
 		List<LoanRequest> loanRequest=new ArrayList<LoanRequest>();
 		loanRequest.add(new LoanRequest(182344628143L,1005.0,16,665,13,"pending","study-loan"));
 		
-		//LoanRequestUtil loanBean=new LoanRequestUtil();
 		LoanRequestUtil.setListOfLoans(loanRequest);
 		
 		

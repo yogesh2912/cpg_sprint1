@@ -57,7 +57,7 @@ public class AccountUtil {
 		
 	}
 	
-	public Map<Long,Account> getMapOfAccount(){
+	public static Map<Long,Account> getMapOfAccount(){
 		return mapOfAccounts;
 	}
 	

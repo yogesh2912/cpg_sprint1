@@ -10,7 +10,7 @@ import com.capgemini.pecunia.exception.InvalidRoiException;
 import com.capgemini.pecunia.exception.InvalidTenureException;
 import com.capgemini.pecunia.exception.InvalidUserexception;
 
-public class LoanRequestService {
+public class LoanRequestService implements LoanRequestServiceInterface{
 	LoanRequestDao loanObj=new LoanRequestDao();
 	
 	//this function validates different conditions on loan request 
